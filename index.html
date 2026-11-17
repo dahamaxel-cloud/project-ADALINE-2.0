@@ -197,7 +197,7 @@
     <!-- Music Player -->
     <div style="text-align: center; border-top: 1px solid rgba(217, 106, 139, 0.2); padding-top: 12px;">
       <audio id="bgMusic" loop>
-        <source src="song.mp3" type="audio/mp3">
+        <source src="mymix.mp3" type="audio/mp3">
       </audio>
       <button onclick="toggleMusic()" id="musicBtn" style="background: rgba(217, 106, 139, 0.2); border: 1px solid rgba(217, 106, 139, 0.4); color: #f7edf1; padding: 7px 16px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; font-family: inherit; width: auto; flex: unset;">
         🎵 Play Our Song
@@ -255,7 +255,6 @@
       imgContainer.innerHTML = `<img id="storyImage" src="${steps[currentStep].image}" alt="Memory">`;
 
       if (steps[currentStep].isQuestion) {
-        // Show Question & Yes/No buttons
         btnContainer.innerHTML = `
           <button style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2);" onclick="prevStep()">Back</button>
           <button style="background: #28a745; border-color: #34d058;" onclick="missionPassed()">Yes ❤️</button>
@@ -364,4 +363,3 @@
   </script>
 </body>
 </html>
-
