@@ -80,7 +80,7 @@
       position: relative;
       z-index: 1;
       width: min(450px, 100%);
-      background: rgba(17, 10, 15, 0.85);
+      background: rgba(17, 10, 15, 0.88);
       border: 1px solid rgba(217, 106, 139, 0.3);
       box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(138, 18, 51, 0.25);
       border-radius: 24px;
@@ -105,7 +105,7 @@
 
     .photo-container {
       width: 100%;
-      height: 290px;
+      height: 270px;
       border-radius: 16px;
       overflow: hidden;
       margin-bottom: 20px;
@@ -121,17 +121,17 @@
     }
 
     h1 {
-      font-size: 1.55rem;
-      margin: 0 0 12px;
+      font-size: 1.5rem;
+      margin: 0 0 10px;
       color: var(--white);
       letter-spacing: 0.03em;
     }
 
     p {
-      font-size: 1.02rem;
+      font-size: 0.98rem;
       line-height: 1.7;
       color: var(--gray);
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       min-height: 75px;
     }
 
@@ -143,6 +143,7 @@
       display: flex;
       gap: 10px;
       justify-content: center;
+      margin-bottom: 15px;
     }
 
     button {
@@ -182,15 +183,25 @@
 
   <div class="card" id="cardBox">
     <div class="tag" id="tagText">Our Memory Lane</div>
-    <div class="photo-container">
+    <div class="photo-container" id="imgContainer">
       <img id="storyImage" src="" alt="Memory">
     </div>
     <h1 id="title">Happy Birthday Chutiammiii ❤️</h1>
     <p id="storyText">Loading memories...</p>
     
-    <div class="btn-container">
+    <div class="btn-container" id="actionButtons">
       <button id="prevBtn" class="secondary" style="display:none;" onclick="prevStep()">Back</button>
       <button id="nextBtn" onclick="nextStep()">Next 💫</button>
+    </div>
+
+    <!-- Music Player -->
+    <div style="text-align: center; border-top: 1px solid rgba(217, 106, 139, 0.2); padding-top: 12px;">
+      <audio id="bgMusic" loop>
+        <source src="song.mp3" type="audio/mp3">
+      </audio>
+      <button onclick="toggleMusic()" id="musicBtn" style="background: rgba(217, 106, 139, 0.2); border: 1px solid rgba(217, 106, 139, 0.4); color: #f7edf1; padding: 7px 16px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; font-family: inherit; width: auto; flex: unset;">
+        🎵 Play Our Song
+      </button>
     </div>
   </div>
 
@@ -219,7 +230,8 @@
         tag: "Memory 04",
         image: "46D301DA-AB34-40E6-959A-1C2D99536BAE.jpeg",
         title: "Happy Birthday Chutiammiii! 🎂🎉",
-        text: "Wishing the happiest birthday to the most special girl in my universe. May all your dreams come true. I love you endlessly! 💖✨"
+        text: "Wishing the happiest birthday to the most special girl in my universe. May all your dreams come true. I love you endlessly! 💖✨",
+        isQuestion: true
       }
     ];
 
@@ -229,9 +241,8 @@
       const tagEl = document.getElementById("tagText");
       const titleEl = document.getElementById("title");
       const textEl = document.getElementById("storyText");
-      const imgEl = document.getElementById("storyImage");
-      const prevBtn = document.getElementById("prevBtn");
-      const nextBtn = document.getElementById("nextBtn");
+      const imgContainer = document.getElementById("imgContainer");
+      const btnContainer = document.getElementById("actionButtons");
       const cardBox = document.getElementById("cardBox");
 
       cardBox.style.animation = 'none';
@@ -241,23 +252,20 @@
       tagEl.innerText = steps[currentStep].tag;
       titleEl.innerText = steps[currentStep].title;
       textEl.innerHTML = steps[currentStep].text;
-      imgEl.src = steps[currentStep].image;
+      imgContainer.innerHTML = `<img id="storyImage" src="${steps[currentStep].image}" alt="Memory">`;
 
-      if (currentStep > 0) {
-        prevBtn.style.display = "block";
+      if (steps[currentStep].isQuestion) {
+        // Show Question & Yes/No buttons
+        btnContainer.innerHTML = `
+          <button style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2);" onclick="prevStep()">Back</button>
+          <button style="background: #28a745; border-color: #34d058;" onclick="missionPassed()">Yes ❤️</button>
+          <button id="noBtn" class="secondary" onmouseover="moveNo()" onclick="moveNo()">No 😜</button>
+        `;
       } else {
-        prevBtn.style.display = "none";
-      }
-
-      if (currentStep === steps.length - 1) {
-        nextBtn.innerText = "Celebrate! 🎉";
-        confetti({
-          particleCount: 120,
-          spread: 80,
-          origin: { y: 0.6 }
-        });
-      } else {
-        nextBtn.innerText = "Next 💫";
+        btnContainer.innerHTML = `
+          <button id="prevBtn" class="secondary" style="${currentStep === 0 ? 'display:none;' : ''}" onclick="prevStep()">Back</button>
+          <button id="nextBtn" onclick="nextStep()">Next 💫</button>
+        `;
       }
     }
 
@@ -265,12 +273,6 @@
       if (currentStep < steps.length - 1) {
         currentStep++;
         updateCard();
-      } else {
-        confetti({
-          particleCount: 180,
-          spread: 100,
-          origin: { y: 0.5 }
-        });
       }
     }
 
@@ -278,6 +280,60 @@
       if (currentStep > 0) {
         currentStep--;
         updateCard();
+      }
+    }
+
+    function moveNo() {
+      const noBtn = document.getElementById('noBtn');
+      const x = (Math.random() - 0.5) * 120;
+      const y = (Math.random() - 0.5) * 60;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function missionPassed() {
+      confetti({
+        particleCount: 250,
+        spread: 120,
+        origin: { y: 0.5 }
+      });
+
+      const cardBox = document.getElementById("cardBox");
+      cardBox.style.animation = 'none';
+      cardBox.offsetHeight;
+      cardBox.style.animation = 'fadeIn 0.6s ease-in-out';
+
+      document.getElementById("tagText").innerText = "MISSION PASSED 🎮✨";
+      document.getElementById("title").innerText = "You're My Forever ❤️";
+      document.getElementById("imgContainer").innerHTML = `
+        <div style="padding: 20px; background: linear-gradient(135deg, rgba(93,10,26,0.4), rgba(138,18,51,0.2)); border-radius: 14px; border: 1px dashed rgba(244,211,153,0.4);">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🌟🏆💫</div>
+          <div style="color: var(--gold); font-size: 1.1rem; font-weight: bold; letter-spacing: 0.08em;">HEART UNLOCKED SUCCESSFULLY</div>
+        </div>
+      `;
+      document.getElementById("storyText").innerHTML = `
+        <strong>My Dearest Chutiammiii,</strong><br><br>
+        You didn't just win a game; you won my entire heart, my present, and every single tomorrow I'll ever have. 🌸<br><br>
+        Thank you for being the most magical, beautiful, and irreplaceable piece of my life universe. May your 18th year bring you boundless joy, endless success, and a love that grows deeper with every heartbeat.<br><br>
+        <strong>I love you more than all the stars in the sky. Happy Birthday! 🎂✨</strong>
+      `;
+      document.getElementById("actionButtons").innerHTML = `
+        <button style="width: 100%; background: var(--wine); border-color: rgba(217,106,139,0.6);" onclick="location.reload()">Replay Memories 💫</button>
+      `;
+    }
+
+    const music = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    let isPlaying = false;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        music.pause();
+        musicBtn.textContent = "🎵 Play Our Song";
+        isPlaying = false;
+      } else {
+        music.play();
+        musicBtn.textContent = "⏸️ Pause Music";
+        isPlaying = true;
       }
     }
 
@@ -308,3 +364,4 @@
   </script>
 </body>
 </html>
+
