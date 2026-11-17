@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Chutiammiii
-  </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Chutiammiii ❤️</title>
   <style>
     :root {
       --bg-1: #070507;
@@ -17,7 +16,6 @@
       --gold: #f4d399;
       --white: #f7edf1;
       --gray: #d7c3ca;
-      --shadow: rgba(0, 0, 0, 0.5);
     }
 
     * { box-sizing: border-box; }
@@ -39,23 +37,11 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 30px 18px;
+      padding: 20px 15px;
       position: relative;
     }
 
-    .glow {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(217, 106, 139, 0.12), transparent 25%),
-        radial-gradient(circle at 80% 10%, rgba(138, 18, 51, 0.15), transparent 28%),
-        radial-gradient(circle at 50% 80%, rgba(93, 10, 26, 0.18), transparent 30%);
-    }
-
-    .floating-hearts,
-    .floating-stars {
+    .floating-hearts, .floating-stars {
       position: fixed;
       inset: 0;
       pointer-events: none;
@@ -65,31 +51,24 @@
     .heart {
       position: absolute;
       color: rgba(217, 106, 139, 0.7);
-      font-size: 20px;
+      font-size: 18px;
       animation: drift linear infinite;
-      text-shadow: 0 0 12px rgba(217, 106, 139, 0.7);
+      text-shadow: 0 0 10px rgba(217, 106, 139, 0.7);
     }
 
     .star {
       position: absolute;
-      width: 4px;
-      height: 4px;
+      width: 3px;
+      height: 3px;
       border-radius: 50%;
       background: rgba(255,255,255,0.85);
-      box-shadow: 0 0 10px rgba(255,255,255,0.8);
       animation: twinkle linear infinite;
     }
 
     @keyframes drift {
-      0% {
-        transform: translateY(105vh) scale(0.8);
-        opacity: 0;
-      }
+      0% { transform: translateY(105vh) scale(0.8); opacity: 0; }
       15% { opacity: 1; }
-      100% {
-        transform: translateY(-10vh) scale(1.3);
-        opacity: 0;
-      }
+      100% { transform: translateY(-10vh) scale(1.3); opacity: 0; }
     }
 
     @keyframes twinkle {
@@ -100,195 +79,231 @@
     .card {
       position: relative;
       z-index: 1;
-      width: min(900px, 100%);
-      background: rgba(17, 10, 15, 0.8);
-      border: 1px solid rgba(217, 106, 139, 0.22);
-      box-shadow:
-        0 0 0 1px rgba(244, 211, 153, 0.08),
-        0 16px 50px rgba(0, 0, 0, 0.55),
-        0 0 40px rgba(138, 18, 51, 0.22);
-      border-radius: 28px;
-      padding: 48px 26px 36px;
-      backdrop-filter: blur(6px);
+      width: min(450px, 100%);
+      background: rgba(17, 10, 15, 0.85);
+      border: 1px solid rgba(217, 106, 139, 0.3);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(138, 18, 51, 0.25);
+      border-radius: 24px;
+      padding: 30px 20px;
+      backdrop-filter: blur(10px);
       text-align: center;
+      animation: fadeIn 0.6s ease-in-out;
     }
 
     .tag {
       display: inline-block;
-      padding: 9px 18px;
+      padding: 6px 14px;
       border: 1px solid rgba(244, 211, 153, 0.4);
       border-radius: 999px;
-      background: rgba(93, 10, 26, 0.2);
+      background: rgba(93, 10, 26, 0.3);
       color: var(--gold);
-      letter-spacing: 0.18em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      font-size: 0.72rem;
-      margin-bottom: 18px;
+      font-size: 0.7rem;
+      margin-bottom: 15px;
+    }
+
+    .photo-container {
+      width: 100%;
+      height: 280px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border: 2px solid rgba(217, 106, 139, 0.4);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+
+    .photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     h1 {
-      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-size: 1.6rem;
       margin: 0 0 12px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
       color: var(--white);
-      text-shadow: 0 0 16px rgba(217, 106, 139, 0.22);
+      letter-spacing: 0.03em;
     }
 
-    .subtitle {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--rose-soft);
-      margin-bottom: 26px;
-    }
-
-    .rose {
-      width: 170px;
-      height: 170px;
-      margin: 20px auto 24px;
-      position: relative;
-      filter: drop-shadow(0 0 20px rgba(217, 106, 139, 0.5));
-      animation: pulse 2.8s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    .rose::before,
-    .rose::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #d96a8b, #7d112a);
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      transform: rotate(45deg);
-      clip-path: ellipse(25% 30% at 50% 50%);
-      box-shadow:
-        0 0 0 10px rgba(255, 255, 255, 0.04),
-        inset 0 0 15px rgba(255,255,255,0.18);
-    }
-
-    .rose::before {
-      transform: rotate(0deg) scale(1.05);
-      clip-path: polygon(50% 0%, 66% 24%, 100% 50%, 66% 76%, 50% 100%, 34% 76%, 0% 50%, 34% 24%);
-    }
-
-    .rose::after {
-      width: 28px;
-      height: 70px;
-      left: 50%;
-      top: 58%;
-      transform: translate(-50%, -50%) rotate(30deg);
-      border-radius: 18px;
-      background: linear-gradient(180deg, #f1d4a2, #c88849);
-      clip-path: none;
-      box-shadow: 0 0 8px rgba(241,212,162,0.4);
-    }
-
-    .message {
-      max-width: 760px;
-      margin: 0 auto;
-      line-height: 1.9;
-      font-size: clamp(1.03rem, 2vw, 1.2rem);
+    p {
+      font-size: 1.02rem;
+      line-height: 1.7;
       color: var(--gray);
+      margin-bottom: 25px;
+      min-height: 70px;
     }
 
-    .message strong {
+    p strong {
       color: var(--rose-soft);
     }
 
-    .signature {
-      margin-top: 28px;
-      font-size: clamp(1rem, 2vw, 1.22rem);
-      color: var(--gold);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .btn-container {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
     }
 
-    .date {
-      margin-top: 8px;
-      color: rgba(247, 237, 241, 0.7);
-      font-size: 0.82rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+    button {
+      flex: 1;
+      padding: 12px 20px;
+      font-size: 0.95rem;
+      background: var(--wine);
+      color: var(--white);
+      border: 1px solid rgba(217, 106, 139, 0.5);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 600;
+      letter-spacing: 0.05em;
     }
 
-    .footer-line {
-      margin-top: 30px;
-      color: rgba(217, 106, 139, 0.8);
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      font-size: 0.72rem;
+    button:hover {
+      background: var(--burgundy);
+      transform: scale(1.03);
     }
 
-    @media (max-width: 600px) {
-      .card {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
+    button.secondary {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
 
-      .rose {
-        width: 130px;
-        height: 130px;
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <div class="glow"></div>
+
   <div class="floating-stars" id="stars"></div>
   <div class="floating-hearts" id="hearts"></div>
 
-  <div class="card">
-    <div class="tag">For My Love</div>
-    <h1>Happy Birthday, Pamodi</h1>
-    <div class="subtitle">18 / 11 / 2006</div>
-
-    <div class="rose"></div>
-
-    <div class="message">
-      <strong>My dearest Pamodi,</strong><br>
-      Every time I think of you, my heart feels softer, warmer, and a little more alive. You are the kind of beauty that stays in the soul — quiet, unforgettable, and impossible to forget.
-      <br><br>
-      Your smile is my favorite kind of midnight light, and your love is the kind of peace I never knew I needed. In your presence, everything feels gentler, deeper, and more beautiful.
-      <br><br>
-      On your birthday, I want you to know: I am grateful for every little thing that makes you, you. You deserve all the love, joy, laughter, and peace this world can offer.
-      <br><br>
-      May your life bloom with sweet memories, endless happiness, and a love that never fades. May every dream you carry become a reality, and may your heart always feel cherished.
-      <br><br>
-      <strong>I love you more than words can say.</strong>
+  <div class="card" id="cardBox">
+    <div class="tag" id="tagText">Our Memory Lane</div>
+    <div class="photo-container">
+      <img id="storyImage" src="1.jpeg" alt="Memory">
     </div>
-
-    <div class="signature">Forever yours</div>
-    <div class="date">18th November 2006</div>
-    <div class="footer-line">With all my love</div>
+    <h1 id="title">Happy Birthday Chutiammiii ❤️</h1>
+    <p id="storyText">Loading memories...</p>
+    
+    <div class="btn-container">
+      <button id="prevBtn" class="secondary" style="display:none;" onclick="prevStep()">Back</button>
+      <button id="nextBtn" onclick="nextStep()">Next 💫</button>
+    </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
+    const steps = [
+      {
+        tag: "Memory 01",
+        image: "1.jpeg", // ඔයාගේ පළමු ෆොටෝ එකේ නම (උදා: photo1.jpeg නම් මෙතනට ඒ නම දෙන්න)
+        title: "Pure Elegance ✨",
+        text: "Like a flower blooming in quiet grace, your smile and charm light up my entire world. So lucky to call you mine. 💛"
+      },
+      {
+        tag: "Memory 02",
+        image: "2.jpeg", // දෙවන ෆොටෝ එකේ නම
+        title: "Holding Hands Forever 🤝",
+        text: "Every moment holding your hand feels like pure magic. I promise to walk beside you through every path in life. 🌸"
+      },
+      {
+        tag: "Memory 03",
+        image: "3.jpeg", // තුන්වන ෆොටෝ එකේ නම
+        title: "My Favorite Smile 😊",
+        text: "The way you look at me makes time stand still. You are my peace, my happiness, and my favorite person. 💕"
+      },
+      {
+        tag: "Memory 04",
+        image: "4.jpeg", // හතරවන ෆොටෝ එකේ නම
+        title: "Happy Birthday Chutiammiii! 🎂🎉",
+        text: "Wishing the happiest birthday to the most special girl in my universe. May all your dreams come true. I love you endlessly! 💖✨"
+      }
+    ];
+
+    let currentStep = 0;
+
+    function updateCard() {
+      const tagEl = document.getElementById("tagText");
+      const titleEl = document.getElementById("title");
+      const textEl = document.getElementById("storyText");
+      const imgEl = document.getElementById("storyImage");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const cardBox = document.getElementById("cardBox");
+
+      cardBox.style.animation = 'none';
+      cardBox.offsetHeight; 
+      cardBox.style.animation = 'fadeIn 0.5s ease-in-out';
+
+      tagEl.innerText = steps[currentStep].tag;
+      titleEl.innerText = steps[currentStep].title;
+      textEl.innerHTML = steps[currentStep].text;
+      imgEl.src = steps[currentStep].image;
+
+      if (currentStep > 0) {
+        prevBtn.style.display = "block";
+      } else {
+        prevBtn.style.display = "none";
+      }
+
+      if (currentStep === steps.length - 1) {
+        nextBtn.innerText = "Celebrate! 🎉";
+        confetti({
+          particleCount: 120,
+          spread: 80,
+          origin: { y: 0.6 }
+        });
+      } else {
+        nextBtn.innerText = "Next 💫";
+      }
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        updateCard();
+      } else {
+        confetti({
+          particleCount: 180,
+          spread: 100,
+          origin: { y: 0.5 }
+        });
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        updateCard();
+      }
+    }
+
+    // Initialize first step
+    updateCard();
+
+    // Background stars and hearts animation
     const stars = document.getElementById("stars");
     const hearts = document.getElementById("hearts");
 
-    for (let i = 0; i < 70; i++) {
+    for (let i = 0; i < 50; i++) {
       const star = document.createElement("div");
       star.className = "star";
       star.style.left = Math.random() * 100 + "%";
       star.style.top = Math.random() * 100 + "%";
-      star.style.animationDuration = (Math.random() * 4 + 2) + "s";
+      star.style.animationDuration = (Math.random() * 3 + 2) + "s";
       star.style.animationDelay = (Math.random() * 3) + "s";
       stars.appendChild(star);
     }
 
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 15; i++) {
       const heart = document.createElement("div");
       heart.className = "heart";
       heart.textContent = "♥";
       heart.style.left = Math.random() * 100 + "%";
-      heart.style.animationDuration = (Math.random() * 8 + 6) + "s";
-      heart.style.animationDelay = (Math.random() * 5) + "s";
-      heart.style.fontSize = (Math.random() * 18 + 16) + "px";
+      heart.style.animationDuration = (Math.random() * 6 + 5) + "s";
+      heart.style.animationDelay = (Math.random() * 4) + "s";
       hearts.appendChild(heart);
     }
   </script>
