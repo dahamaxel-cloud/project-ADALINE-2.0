@@ -105,7 +105,7 @@
 
     .photo-container {
       width: 100%;
-      height: 280px;
+      height: 290px;
       border-radius: 16px;
       overflow: hidden;
       margin-bottom: 20px;
@@ -117,10 +117,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center top;
     }
 
     h1 {
-      font-size: 1.6rem;
+      font-size: 1.55rem;
       margin: 0 0 12px;
       color: var(--white);
       letter-spacing: 0.03em;
@@ -131,7 +132,7 @@
       line-height: 1.7;
       color: var(--gray);
       margin-bottom: 25px;
-      min-height: 70px;
+      min-height: 75px;
     }
 
     p strong {
@@ -182,7 +183,7 @@
   <div class="card" id="cardBox">
     <div class="tag" id="tagText">Our Memory Lane</div>
     <div class="photo-container">
-      <img id="storyImage" src="1.jpeg" alt="Memory">
+      <img id="storyImage" src="" alt="Memory">
     </div>
     <h1 id="title">Happy Birthday Chutiammiii ❤️</h1>
     <p id="storyText">Loading memories...</p>
@@ -198,25 +199,25 @@
     const steps = [
       {
         tag: "Memory 01",
-        image: "1.jpeg", // ඔයාගේ පළමු ෆොටෝ එකේ නම (උදා: photo1.jpeg නම් මෙතනට ඒ නම දෙන්න)
+        image: "https://i.ibb.co/3ykB8yL/photo1.jpg",
         title: "Pure Elegance ✨",
         text: "Like a flower blooming in quiet grace, your smile and charm light up my entire world. So lucky to call you mine. 💛"
       },
       {
         tag: "Memory 02",
-        image: "2.jpeg", // දෙවන ෆොටෝ එකේ නම
+        image: "https://i.ibb.co/6800qL9/photo2.jpg",
         title: "Holding Hands Forever 🤝",
         text: "Every moment holding your hand feels like pure magic. I promise to walk beside you through every path in life. 🌸"
       },
       {
         tag: "Memory 03",
-        image: "3.jpeg", // තුන්වන ෆොටෝ එකේ නම
+        image: "https://i.ibb.co/2g0N14J/photo3.jpg",
         title: "My Favorite Smile 😊",
         text: "The way you look at me makes time stand still. You are my peace, my happiness, and my favorite person. 💕"
       },
       {
         tag: "Memory 04",
-        image: "4.jpeg", // හතරවන ෆොටෝ එකේ නම
+        image: "https://i.ibb.co/0Vw7v3r/photo4.jpg",
         title: "Happy Birthday Chutiammiii! 🎂🎉",
         text: "Wishing the happiest birthday to the most special girl in my universe. May all your dreams come true. I love you endlessly! 💖✨"
       }
@@ -280,10 +281,8 @@
       }
     }
 
-    // Initialize first step
     updateCard();
 
-    // Background stars and hearts animation
     const stars = document.getElementById("stars");
     const hearts = document.getElementById("hearts");
 
@@ -309,3 +308,4 @@
   </script>
 </body>
 </html>
+
